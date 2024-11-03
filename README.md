@@ -1,6 +1,5 @@
 # Target Product Profile-Guided Drug Design Using Multi-objective Direct Preference Optimization
 
-
 Sejeong Park\*, Jungwoo Park\*, Donghyeon Lee, Sunkyu Kim, Jaewoo Kang (\* indicates equal contribution)
 
 <center><img src="./figures/figure-1.png" alt="./figures/figure-1.png" width="90%"/></center>
