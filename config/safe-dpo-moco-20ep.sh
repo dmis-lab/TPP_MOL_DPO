@@ -1,0 +1,30 @@
+python3 src/main.py \
+    --dataset $2 \
+    --batch-size 128 \
+    --num-workers 32 \
+    --target-columns $3 \
+    --max-length 128 \
+    --penalty-beta 0.1 \
+    --eval-metrics SAScore QED logP plogP Validity Uniqueness IntDiv hERG CYP1A2_Veith CYP2C9_Veith CYP2C19_Veith CYP2D6_Veith CYP3A4_Veith \
+    --use-moco \
+    --jacmom 0.99 \
+    --lammom 0.5 \
+    --lamreg 0.0 \
+    --learning-rate 5e-6 \
+    --weight-decay 0.01 \
+    --adam-b1 0.9 \
+    --adam-b2 0.999 \
+    --adam-eps 1e-8 \
+    --clip-grad 1.0 \
+    --warmup-ratio 0.1 \
+    --epochs 20 \
+    --log-interval 50 \
+    --eval-interval 2 \
+    --eval-batches 4 \
+    --split-seed 0 \
+    --shuffle-seed 0 \
+    --project chemgpt-pref-opt \
+    --name $1 \
+    --ipaddr $(curl -s ifconfig.me) \
+    --hostname $(hostname) \
+    --output-dir ./results/
