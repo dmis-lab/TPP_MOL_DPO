@@ -2,7 +2,9 @@
 
 Sejeong Park\*, Jungwoo Park\*, Donghyeon Lee, Sunkyu Kim, Jaewoo Kang (\* indicates equal contribution)
 
-<center><img src="./figures/figure-1.png" alt="./figures/figure-1.png" width="90%"/></center>
+<div align="center">
+    <img src="./figures/figure-1.png" alt="./figures/figure-1.png" width="90%"/>
+</div>
 
 Abstarct: *Fragment-Based Drug Design (FBDD) offers unique advantages in exploring chemical space and optimizing lead compounds. However, existing FBDD approaches often struggle to efficiently meet complex Target Product Profile (TPP) requirements due to the significant time and financial investments typically required in traditional workflows. This study introduces a novel TPP-guided fragment-based generative model that integrates Direct Preference Optimization (DPO) with sequence-based fragment generation. The model transforms multiobjective optimization into a preference learning task, simultaneously optimizing multiple molecular properties from the earliest design stages. Key innovations include In-Batch DPO for computational efficiency and a multi-objective learning strategy balancing diverse molecular properties. Case studies across various therapeutic targets demonstrate significant improvements in generating diverse drug candidates optimized for binding affinity, synthetic accessibility, druglikeness and ADMET properties, potentially accelerating the discovery of novel therapeutics for challenging targets.*
 
