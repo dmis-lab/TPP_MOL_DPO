@@ -13,7 +13,10 @@ This repository contains the code to reproduce the experiments in the paper.
 
 ## Prerequisite
 
-All experiments in this work were conducted on [TPU-v3-8](https://cloud.google.com/tpu/docs/v3). For research purposes, you can apply to [the TRC progam](https://sites.research.google/trc/about/) [here](https://sites.research.google/trc/about/) to receive free TPU quota. To create a TPU VM instance, run the command below:
+Our framework supports both GPU and TPU via [Jax](https://github.com/jax-ml/jax) and [Flax](https://github.com/google/flax). If you plan to train models on GPUs, you can skip this section. For TPU training, we recommend using [TPU-v3-8](https://cloud.google.com/tpu/docs/v3). Researchers can apply for free TPU credits through [the TPU Research Cloud (TRC) program](https://sites.research.google/trc/about/). To apply, visit the TRC program page here.
+
+To create a TPU VM instance, use the following command:
+
 ```bash
 $ gcloud compute tpus tpu-vm create tpu-name \
     --zone=europe-west4-a \
@@ -26,14 +29,26 @@ gcloud compute tpus tpu-vm ssh tpu-name --zone=europe-west4-a
 ```
 
 ## Requirements
-After preparing TPU instances, install the conda environment.
+
+To set up the environment, first install Conda. If Conda is already installed, you can skip to the corresponding environment section. Use the following command to install Miniconda:
+
 ```bash
 $ wget https://repo.anaconda.com/miniconda/Miniconda3-py310_24.1.2-0-Linux-x86_64.sh
 $ bash Miniconda3-py310_24.1.2-0-Linux-x86_64.sh -b -u
 ```
-And then, install the requirements via pip:
+
+### GPU Environment
+Install the required packages using pip:
 ```bash
-$ pip install -U jax[tpu] -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
+pip install -U "jax[cuda12]"
+pip install -U torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+pip install -U flax optax chex webdataset wandb fsspec gcsfs transformers sentencepiece tiktoken omegaconf safe-mol pandas==2.0.0 numpy==1.26.4 admet-ai typing_extensions
+```
+
+### TPU Environment
+Install the required packages using pip:
+```bash
+$ pip install -U "jax[tpu]" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 $ pip install -U torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 $ pip install -U flax optax chex webdataset wandb fsspec gcsfs transformers sentencepiece tiktoken omegaconf safe-mol pandas==2.0.0 admet-ai
 ```
